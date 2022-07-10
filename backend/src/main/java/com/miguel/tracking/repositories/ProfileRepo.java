@@ -7,5 +7,7 @@ import com.miguel.tracking.models.Profile;
 
 @Repository
 public interface ProfileRepo extends JpaRepository<Profile, Integer>{
-
+	
+	Profile getProfileByUsername(String username);
+	
 }//end interface
