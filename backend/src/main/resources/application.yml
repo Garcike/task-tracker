@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: ${TRACKER_URL}
+    username: ${TRACKER_USER}
+    password: ${TRACKER_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: update
