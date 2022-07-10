@@ -1,5 +1,11 @@
 package com.miguel.tracking.repositories;
 
-public interface ProfileRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-}
+import com.miguel.tracking.models.Profile;
+
+@Repository
+public interface ProfileRepo extends JpaRepository<Profile, Integer>{
+
+}//end interface
