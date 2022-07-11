@@ -90,5 +90,21 @@ public class ProfileService {
 	
 	}//end getProfielbyPid
 	
+	public Profile getProfileByUsername(String username) {
+		
+		Profile profile = pr.getProfileByUsername(username);
+		
+		if(profile == null){
+			throw new ProfileNotFoundException("Profile with username not found: " + username);
+		}//end if
+		
+		return profile;
+		
+	}//end getProfileByUsername
+	
+	/*
+	 * Some methods to add
+	 * updateProfile,`
+	 */
 	
 }//end ProfileService class
