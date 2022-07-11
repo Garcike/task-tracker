@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.miguel.tracking.exceptions.AuthenticationException;
+import com.miguel.tracking.exceptions.ProfileAlreadyExistException;
+import com.miguel.tracking.exceptions.ProfileNotFoundException;
 import com.miguel.tracking.models.Profile;
 import com.miguel.tracking.repositories.ProfileRepo;
 
@@ -59,6 +61,34 @@ public class ProfileService {
 	 */
 	public Profile createProfile(Profile newProfile){
 		
+		log.debug("Attempting to create a new profile");
+		
+		//check it Profile already exists
+		Profile profile = pr.getProfileByUsername(newProfile.getUsername());
+		
+		if(profile != null) {
+			throw new ProfileAlreadyExistException("Profile with username already exists: " + newProfile.getUsername());
+		}//end
+		
+		log.debug("Successfully created a new profile");
+		
+		return pr.save(newProfile);
+		
+		
 	}//end createProfile
+	
+	/**
+	 * Return profile by profile id
+	 * @param pid
+	 * @return Profile
+	 */
+	public Profile getProfileByPid(int pid) {
+		
+		Profile profile = pr.findById(pid).orElseThrow(()-> new ProfileNotFoundException("Profile not found"));
+		
+		return profile;
+	
+	}//end getProfielbyPid
+	
 	
 }//end ProfileService class
