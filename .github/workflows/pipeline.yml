@@ -1,0 +1,23 @@
+name: pipeline
+
+# action will be triggered when code is pushed to the main branch in the repository
+on:
+  push:
+    branches:
+      - login
+
+jobs:
+  continuous-integration:
+    # Each jobs run in a runner environment specified by runs on
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout repository into runner
+      # https://github.com/actions/checkout
+      uses: actions/checkout@v3
+
+    - name: Set up python 3.7.3
+      # https://github.com/actions/setup-python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.7.3'
