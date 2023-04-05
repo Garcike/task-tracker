@@ -20,4 +20,4 @@ jobs:
       # https://github.com/actions/setup-python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.7.5'
+        python-version: '3.7.7'
