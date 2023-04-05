@@ -9,7 +9,7 @@ on:
 jobs:
   continuous-integration:
     # Each jobs run in a runner environment specified by runs on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
 
     - name: Checkout repository into runner
@@ -20,4 +20,4 @@ jobs:
       # https://github.com/actions/setup-python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.7.7'
+        python-version: '3.7.3'
